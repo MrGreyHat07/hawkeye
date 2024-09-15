@@ -1,5 +1,18 @@
-
 #!/bin/bash
+
+# Your other script logic goes here...
+
+# Print the logo
+echo "  _                          _                          "
+echo " | |                        | |                         "
+echo " | |__     __ _  __      __ | | __   ___   _   _    ___ "
+echo " | '_ \   / _\` | \ \ /\ / / | |/ /  / _ \ | | | | / _ \\"
+echo " | | | | | (_| |  \ V  V /  |   <  |  __/ | |_| | |  __/"
+echo " |_| |_|  \__,_|   \_/\_/   |_|\_\  \___|  \__, |  \___|"
+echo "                                            __/ |       "
+echo "                                           |___/        "
+                                       echo"By - Mr.GreyHat"
+
 
 # Parse command-line arguments
 while getopts ":d:" opt; do
@@ -17,7 +30,7 @@ while getopts ":d:" opt; do
       ;;
   esac
 done
-
+echo "Initiating the Enumeration...."
 # Subdomain enumeration
 echo "$domain" | subfinder | anew subdomains.txt
 echo "$domain" | assetfinder | anew subdomains.txt
@@ -35,4 +48,3 @@ cat livesubdomains.txt | cariddi | anew urls.txt
 
 # Additional step (if applicable)
 katana -u livesubdomains.txt | anew urls.txt
-
